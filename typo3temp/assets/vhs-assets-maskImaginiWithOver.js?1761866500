@@ -1,0 +1,13 @@
+
+    $(document).ready(function() {
+        $('.image-box').hover(
+            function() {
+                $(this).find('.hoverBox').stop().animate({bottom: '0'}, 100);
+            },
+            function() {
+                $(this).find('.hoverBox').stop().animate({bottom: '-100%'}, 100);
+            }
+        );
+    });
+
+

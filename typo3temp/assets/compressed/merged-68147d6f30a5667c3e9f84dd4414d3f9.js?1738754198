@@ -1,0 +1,363 @@
+
+
+jQuery(document).ready(function() {
+
+
+
+    $('.gallery-item.col-sm-6 + .gallery-item.col-sm-6').each(function(index) {
+          $(this).addClass('has2cols');
+    });
+
+    $('.gallery-item.col-sm-6.has2cols').each(function(index) {
+        $(this).prev().addClass('has2colsFirst');
+    });
+    $('.gallery-item.col-sm-6').each(function(index) {
+        $(this).addClass('col-sm-12');
+    });
+    $('.has2colsFirst.col-sm-12, .has2cols.col-sm-12').each(function(index) {
+        $(this).removeClass('col-sm-12');
+    });
+
+    $('.gallery-item.col-sm-6.col-sm-12').each(function(index) {
+        $(this).removeClass('col-sm-6');
+    });
+
+
+    $('.frame-type-textpic .detailProductContent').each(function(index) {
+        $('.gallery-item.col-sm-12').addClass('col-md-4');
+    });
+
+    $('.frame-type-textpic .detailProductContent').each(function(index) {
+        $(this).parents().eq(2).addClass('detailProductText');
+    });
+
+
+    
+
+
+    $('.frame-type-textpic .detailProductText .textpic-item.textpic-text').appendTo('.detailProductContent .col-md-5');
+
+
+    // $('.tab-v1 ul.nav-tabs a.nav-link.active').parent().addClass('active');
+    $('.tab-v1 .tab-content > .active').removeClass('show');
+    $('.tab-v1 .tab-content > .active').addClass('in');
+
+    // open zonaInteres 2023 meniu
+    $('.stage-wrapper .stage-active span.active').click(function() {
+        $('.stages').slideToggle( "easy" );
+    });
+
+
+    // $('.close-container').parent().hide();
+
+    $('.close-container').on('click', function() {
+        $(this).parent().removeClass('in');
+        $(this).parent().hide();
+
+        $('#main-navigation').attr('style', 'min-height: 0px;');
+    } );
+
+});
+
+
+
+$(document).ready(function() {   
+    $(".toggle-more").click(function() {
+        $(this).prev('.readmore-content').toggle('slow');
+     });
+
+});
+
+
+
+$.cookieCuttr({
+    cookieExpires: 365,
+    cookieDeclineButton: !1,
+    cookiePolicyPage: !1,
+    cookieAnalyticsMessage: 'Дау Бента България ЕООД защитава Вашите лични данни. Този сайт използва „бисквитки“ (cookies), за да персонализира съдържанието и рекламите, да предоставя функции на социални медии и да анализира трафика. Кликнете по-долу, за да дадете своето съгласите. Може да промените Вашето решение по всяко време съгласно Политиката за поверителност на Дау Бента България.',
+    cookieAcceptButtonText: 'OK',
+    cookieDeclineButtonText: 'DECLINE COOKIES',
+    cookieWhatAreLinkText: '',
+    cookiePolicyLink: '',
+    cookieWhatAreTheyLink: ''
+});
+jQuery(document).ready(function() {
+
+    $('.hero .carousel .item:first').addClass('active');
+    $('.hero .carousel .carousel-indicators li:first').addClass('active');
+
+	$('.gallery-item.col-sm-3.col-xs-6').each(function(){
+		var el = $(this).find('figcaption');
+		$(this).append('<figcaption class="caption">'+el.html()+'</figcaption>');
+		el.remove();
+	});
+
+	// Add class active to first item from Carousel
+    $('.carousel-inner .item:first-child:not(.active)').addClass('active');
+
+
+    //put in img scr the data-src on mobile when lazy load not working
+    var windowWidth = $(window).width();
+    if(windowWidth < 780) {
+    	$('figure img').each(function(){
+    		var str = $(this).attr('src');
+    		var ss = str.indexOf('blank.gif');
+
+    		if(ss > 0) {
+    			var dstr = $(this).attr('data-src');
+    			$(this).attr('src', dstr);
+    		}
+    	});
+    }
+
+
+    $(".teaserProdus4Coloane .col-md-3.col-xs-6 .wrapper").each(function(){
+
+      if ($.trim($(this).text()) == "" && $.trim($(this).html()) == ""){
+        $(this).parent().remove();
+      }
+	});
+
+	// $(".tx-gallery .carousel").carousel({interval: 3600, pause: "hover"});
+
+
+	if ($('input#contactProduse-subject').length) {
+		// $("input#contactProduse-subject").attr("disabled", true);
+    }
+
+	if ($('#contactProduse .btn.btn-primary').length) {
+		$("#contactProduse .btn.btn-primary").removeClass('btn-primary').addClass('sendButton');
+	}
+	if ($('#solicitareinformatii .btn.btn-primary').length) {
+		$("#solicitareinformatii .btn.btn-primary").removeClass('btn-primary').addClass('sendButton');
+	}
+	if ($('#solicitareInformatiiMoldova .btn.btn-primary').length) {
+		$("#solicitareInformatiiMoldova .btn.btn-primary").removeClass('btn-primary').addClass('sendButton');
+	}
+	if ($('#contactProduseMoldova .btn.btn-primary').length) {
+		$("#contactProduseMoldova .btn.btn-primary").removeClass('btn-primary').addClass('sendButton');
+	}
+	if ($('#contactProduseBulgaria .btn.btn-primary').length) {
+		$("#contactProduseBulgaria .btn.btn-primary").removeClass('btn-primary').addClass('sendButton');
+	}
+
+
+
+
+//pentru inputfield name
+  $('input#contactProduse-name, #contactProduse-text-1, #contactProduse-text-2, #contactProduse-message, input#solicitareinformatii-name, #solicitareinformatii-text-1, #solicitareinformatii-email, #solicitareinformatii-text-2, #solicitareinformatii-message, input#solicitareInformatiiMoldova-name, #solicitareInformatiiMoldova-text-1, #solicitareInformatiiMoldova-email, #solicitareInformatiiMoldova-text-2, #solicitareInformatiiMoldova-message, input#contactProduseMoldova-name, #contactProduseMoldova-text-1, #contactProduseMoldova-email, #contactProduseMoldova-text-2, #contactProduseMoldova-message, input#contactProduseBulgaria-name, #contactProduseBulgaria-text-1, #contactProduseBulgaria-email, #contactProduseBulgaria-text-2, #contactProduseBulgaria-message').on('change invalid', function() {
+    var textfield = $(this).get(0);
+
+    // 'setCustomValidity not only sets the message, but also marks
+    // the field as invalid. In order to see whether the field really is
+    // invalid, we have to remove the message first
+    textfield.setCustomValidity('');
+
+    if (!textfield.validity.valid) {
+      textfield.setCustomValidity('Acest camp este obligatoriu');
+    }
+  });
+
+  //pentru inputfield email
+  $('#contactProduse-email').on('change invalid', function() {
+    var textfield = $(this).get(0);
+
+    // 'setCustomValidity not only sets the message, but also marks
+    // the field as invalid. In order to see whether the field really is
+    // invalid, we have to remove the message first
+    textfield.setCustomValidity('');
+
+    if (!textfield.validity.valid) {
+      textfield.setCustomValidity('Completati campul cu o adresa de email valida');
+    }
+  });
+
+  // $('.has-error:lang(ro)').addClass('TESSSST');
+
+
+  var html = '<span class="error help-block" role="alert">Please enter a valid email address<br></span>';
+  // console.log(html);
+
+  var $html = $('<span />',{html:html});
+  var $htmlbg = $('<span />',{html:html});
+  // replace "Headline" with "whatever" => Doesn't work
+  $html.find('span').html("Completati campul cu o adresa de email valida");
+  $htmlbg.find('span').html("Completati campul cu o adresa de email valida (BG)");
+
+  $('.error.help-block:lang(ro)').html( $html.html() );
+  $('.error.help-block:lang(bg)').html( $htmlbg.html() );
+
+  // console.log($html.html());
+
+
+
+  $('#contactProduse-linkedcheckbox-1').on('change invalid', function() {
+    console.log('aa');
+    var textfield = $(this).get(0);
+    textfield.setCustomValidity('');
+
+    if (!textfield.validity.valid) {
+      textfield.setCustomValidity('Acest buton trebuie sa fie validat');
+    }
+});
+
+
+
+
+//Traducere formulare mesaje
+
+$('input#contactProduse-name:lang(bg), #contactProduse-text-1:lang(bg), #contactProduse-text-2:lang(bg), #contactProduse-message:lang(bg), input#solicitareinformatii-name:lang(bg), #solicitareinformatii-text-1:lang(bg), #solicitareinformatii-email:lang(bg), #solicitareinformatii-text-2:lang(bg), #solicitareinformatii-message:lang(bg), input#solicitareInformatiiMoldova-name:lang(bg), #solicitareInformatiiMoldova-text-1:lang(bg), #solicitareInformatiiMoldova-email:lang(bg), #solicitareInformatiiMoldova-text-2:lang(bg), #solicitareInformatiiMoldova-message:lang(bg), input#contactProduseMoldova-name:lang(bg), #contactProduseMoldova-text-1:lang(bg), #contactProduseMoldova-email:lang(bg), #contactProduseMoldova-text-2:lang(bg), #contactProduseMoldova-message:lang(bg), input#contactProduseBulgaria-name:lang(bg), #contactProduseBulgaria-text-1:lang(bg), #contactProduseBulgaria-email:lang(bg), #contactProduseBulgaria-text-2:lang(bg), #contactProduseBulgaria-message').on('change invalid', function() {
+  var textfield = $(this).get(0);
+
+  // 'setCustomValidity not only sets the message, but also marks
+  // the field as invalid. In order to see whether the field really is
+  // invalid, we have to remove the message first
+  textfield.setCustomValidity('');
+
+  if (!textfield.validity.valid) {
+    textfield.setCustomValidity('Acest camp este obligatoriu (BG)');
+  }
+});
+
+
+
+$('#contactProduseBulgaria-linkedcheckbox-1').on('change invalid', function() {
+  console.log('aa');
+  var textfield = $(this).get(0);
+  textfield.setCustomValidity('');
+
+  if (!textfield.validity.valid) {
+    textfield.setCustomValidity('Acest buton trebuie sa fie validat BG');
+  }
+});
+
+
+
+// get URL for Contact Produse button
+
+    // $.urlParam = function(name){
+    //     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    //     return results[1] || 0;
+
+    //   //  if(results == null){
+    //   //    return null;
+    //   // }
+    //   // else{
+    //   //     return decodeURI(results[1]) || 0;
+    //   // }
+    // }
+
+    // $.urlParam('title');
+    // console.log(decodeURIComponent($.urlParam('title')));
+    // $('input#contactProduse-subject').attr('value',decodeURIComponent($.urlParam('title')));
+    // $('input#contactProduseMoldova-subject').attr('value', decodeURIComponent($.urlParam('title')));
+    // $('input#contactProduseBulgaria-subject').attr('value',decodeURIComponent($.urlParam('title')));
+
+    // // if ($.urlParam('title')) {
+    // //     // $("#formfield-c_email").focus();
+	  // // }
+
+    $.urlParam = function(name){
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      if (results == null){
+          return null;
+      }
+      else{
+          return decodeURIComponent(results[1]) || 0;
+      }
+    }
+    
+    var titleParam = $.urlParam('title');
+    // console.log(decodeURIComponent(titleParam));
+    // $('input#contactProduse-subject').attr('value', decodeURIComponent(titleParam));
+    // $('input#contactProduseMoldova-subject').attr('value', decodeURIComponent(titleParam));
+    // $('input#contactProduseBulgaria-subject').attr('value', decodeURIComponent(titleParam));
+
+    // $('input#contactProduse-subject').attr('value', decodeURIComponent(titleParam));
+
+    if ($('#contactProduseMoldova-24953-subject').length) {
+      $('input#contactProduseMoldova-24953-subject').attr('value', decodeURIComponent(titleParam));
+    }
+
+    if ($('#contactProduseMoldova-subject').length) {
+      $('input#contactProduseMoldova-subject').attr('value', decodeURIComponent(titleParam));
+    }
+
+    if ($('#input#contactProduseBulgaria-subject').length) {
+      $('input#input#contactProduseBulgaria-subject').attr('value', decodeURIComponent(titleParam));
+    }
+
+    if ($('#contactProduse-24952-subject').length) {
+      $('input#contactProduse-24952-subject').attr('value', decodeURIComponent(titleParam));
+    }
+
+    if ($('#contactProduseBulgaria-24957-subject').length) {
+      $('input#contactProduseBulgaria-24957-subject').attr('value', decodeURIComponent(titleParam));
+    }
+
+    
+
+});
+
+$(document).ready(function() {
+
+$('.powermail_form input:file').attr('required', 'required');
+
+
+//pentru inputfield name
+    $('.powermail_form input#powermail_field_denumirefirma, input#powermail_field_localitate, input#powermail_field_personadecontact, input#powermail_field_ocupatie, input#powermail_field_produselecarevaintereseaza')
+    .on('change invalid', function() {
+        var textfield = $(this).get(0);
+
+        // 'setCustomValidity not only sets the message, but also marks
+        // the field as invalid. In order to see whether the field really is
+        // invalid, we have to remove the message first
+        textfield.setCustomValidity('');
+
+        if (!textfield.validity.valid) {
+          textfield.setCustomValidity('Acest camp este obligatoriu');
+        }
+    });
+
+//pentru inputfield email
+    $('.powermail_form input#powermail_field_e_mail').on('change invalid', function() {
+        var textfield = $(this).get(0);
+
+        // 'setCustomValidity not only sets the message, but also marks
+        // the field as invalid. In order to see whether the field really is
+        // invalid, we have to remove the message first
+        textfield.setCustomValidity('');
+
+        if (!textfield.validity.valid) {
+          textfield.setCustomValidity('Completati o adresa de email valida');
+        }
+    });
+
+
+//pentru inputfield type="number"
+    //$('.powermail_form input.powermail_field powermail_input[type="tel"]').on('change invalid', function() {
+    $('.powermail_form input#powermail_field_telefon, input#powermail_field_fax').on('change invalid', function() {
+        var textfield = $(this).get(0);
+
+        // 'setCustomValidity not only sets the message, but also marks
+        // the field as invalid. In order to see whether the field really is
+        // invalid, we have to remove the message first
+        textfield.setCustomValidity('');
+
+        if (!textfield.validity.valid) {
+          textfield.setCustomValidity('Adaugati numai numere in format nr. de telefon: 0xx... sau +xx...');
+        }
+    });
+
+
+    $('.powermail_form input#powermail_field_termenisiconditii_1').on('change invalid', function() {
+        console.log('aa');
+        var textfield = $(this).get(0);
+        textfield.setCustomValidity('');
+
+        if (!textfield.validity.valid) {
+          textfield.setCustomValidity('Pentru a trimite formularul este necesar sa va exprimati acordul cu privire la prelucrarea datelor cu caracter personal.');
+        }
+    });
+
+});

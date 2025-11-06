@@ -1,0 +1,348 @@
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--0 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--0 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--0').mouseenter(mouseEnterHandler);
+        $('.teaser2020--0').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--0').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--0').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--0').mouseenter(mouseEnterHandler);
+          $('.teaser2020--0').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--1 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--1 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--1').mouseenter(mouseEnterHandler);
+        $('.teaser2020--1').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--1').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--1').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--1').mouseenter(mouseEnterHandler);
+          $('.teaser2020--1').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--2 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--2 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--2').mouseenter(mouseEnterHandler);
+        $('.teaser2020--2').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--2').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--2').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--2').mouseenter(mouseEnterHandler);
+          $('.teaser2020--2').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--3 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--3 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--3').mouseenter(mouseEnterHandler);
+        $('.teaser2020--3').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--3').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--3').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--3').mouseenter(mouseEnterHandler);
+          $('.teaser2020--3').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--4 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--4 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--4').mouseenter(mouseEnterHandler);
+        $('.teaser2020--4').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--4').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--4').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--4').mouseenter(mouseEnterHandler);
+          $('.teaser2020--4').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--0 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--0 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--0').mouseenter(mouseEnterHandler);
+        $('.teaser2020--0').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--0').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--0').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--0').mouseenter(mouseEnterHandler);
+          $('.teaser2020--0').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--1 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--1 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--1').mouseenter(mouseEnterHandler);
+        $('.teaser2020--1').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--1').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--1').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--1').mouseenter(mouseEnterHandler);
+          $('.teaser2020--1').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--2 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--2 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--2').mouseenter(mouseEnterHandler);
+        $('.teaser2020--2').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--2').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--2').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--2').mouseenter(mouseEnterHandler);
+          $('.teaser2020--2').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--3 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--3 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--3').mouseenter(mouseEnterHandler);
+        $('.teaser2020--3').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--3').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--3').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--3').mouseenter(mouseEnterHandler);
+          $('.teaser2020--3').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--0 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--0 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--0').mouseenter(mouseEnterHandler);
+        $('.teaser2020--0').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--0').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--0').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--0').mouseenter(mouseEnterHandler);
+          $('.teaser2020--0').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $(function() {
+        // Definiți funcția pentru evenimentul mouseenter
+        function mouseEnterHandler() {
+          $('.teaser2020--1 .fly-out').slideDown(500, 'swing');
+        }
+      
+        // Definiți funcția pentru evenimentul mouseleave
+        function mouseLeaveHandler() {
+          $('.teaser2020--1 .fly-out').slideUp(500, 'swing');
+        }
+      
+        // Atașați funcțiile la evenimentele mouseenter și mouseleave
+        $('.teaser2020--1').mouseenter(mouseEnterHandler);
+        $('.teaser2020--1').mouseleave(mouseLeaveHandler);
+      
+        // Funcția pentru prevenirea resetării
+        function preventReset() {
+          // Eliminați legăturile evenimentelor înainte de a le atașa din nou
+          $('.teaser2020--1').off('mouseenter', mouseEnterHandler);
+          $('.teaser2020--1').off('mouseleave', mouseLeaveHandler);
+          
+          // Alte acțiuni sau cod aici
+      
+          // Atașați funcțiile din nou la evenimentele mouseenter și mouseleave
+          $('.teaser2020--1').mouseenter(mouseEnterHandler);
+          $('.teaser2020--1').mouseleave(mouseLeaveHandler);
+        }
+      });
+      
+
+
+    $('#tabaccordion-36218').tabCollapse({
+        tabsClass: 'hidden-sm hidden-xs',
+        accordionClass: 'visible-sm visible-xs'
+        });
+
+

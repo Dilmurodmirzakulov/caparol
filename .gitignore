@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Vercel
+.vercel/
+
+# Temporary files
+*.tmp
+*.log

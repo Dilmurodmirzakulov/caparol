@@ -1,0 +1,48 @@
+
+$(function() {
+
+    $('#accordion-slider-').each(function(i, accordion){
+        $(accordion).accordionSlider({
+            height: '470',
+            width: '100%',
+            responsiveMode: 'auto',
+            openedPanelSize: 'max',
+            maxOpenedPanelSize: '55%',
+            visiblePanels: $(accordion).data('slides'),
+            closePanelsOnMouseOut: true,
+            autoplay: false,
+            mouseWheel:false,
+            breakpoints: {
+                767: {
+                    orientation: 'vertical',
+                    height: (parseInt($(accordion).data('slides')) * 125),
+                    maxOpenedPanelSize: '65%'
+                }
+            },
+            init: function(e){
+                updateSlideLayer($(this.$accordion));
+            },
+            update: function(e){
+                updateSlideLayer($(this.$accordion));
+            },
+            panelOpenComplete: function(obj){
+                updateSlideDetailsWidth($(this.$accordion), $(this.getPanelAt(obj.index)));
+            }
+        });
+    });
+
+    function updateSlideLayer($accordionElem){
+        if($accordionElem.hasClass('as-horizontal')){
+            $accordionElem.find('.as-panel > .as-layer').css('width', $accordionElem.find('.as-mask').height());
+        }
+    }
+
+    function updateSlideDetailsWidth($accordionElem, $panel){
+        if($accordionElem.hasClass('as-horizontal')){
+            $accordionElem.find('.as-panel > .slide-details').css('width', $accordionElem.find('.as-mask').width() * 0.55);
+        }
+    }
+
+});
+
+

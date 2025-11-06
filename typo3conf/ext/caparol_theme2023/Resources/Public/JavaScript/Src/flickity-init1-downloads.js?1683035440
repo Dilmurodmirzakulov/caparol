@@ -1,0 +1,296 @@
+if ('NodeList' in window && !NodeList.prototype.forEach) {
+	NodeList.prototype.forEach = function (callback, thisArg) {
+		thisArg = thisArg || window;
+			for (var i = 0; i < this.length; i++) {
+				callback.call(thisArg, this[i], i, this);
+			}
+	};
+}
+
+(() => {
+    // handle videos
+    const fVideos = document.querySelectorAll('.flickity.layout-imagebuilder video')
+    fVideos.forEach(v => {
+        v.muted = true
+        v.autoplay = true
+        v.loop = true
+        v. controls = false
+        v.play()
+    })
+})();
+
+(function flickityInit() {
+	var autoplay = 0;
+	var speed = 4000;
+	var speed = autoplay && speed;
+	var randomize = '0';
+	var arrow = 'none';
+	var arrows = arrow !== 'none';
+	var pager = 'normal';
+	var pagerPosition = 'top';
+	var uid = 'download-slide';
+	var otherSliderUid = 0;
+	var variant = 'downloads';
+
+	var elem = document.querySelector('.flickity--' + uid);
+ 
+	if (randomize != 0) {
+		// only works for 1 instance / slider - navslider combo per page
+		function defineRandomOrder(array) {
+			window.flickityRandomOrder = [];
+			for (var i = 0, len = array.length; i < len; i++) {
+				function roll() {
+					var random = Math.floor(Math.random() * len);
+					if (window.flickityRandomOrder.indexOf(random) === -1) {
+						window.flickityRandomOrder.push(random);
+					} else {
+						roll();
+					}
+				}
+				roll();
+			}
+		}
+
+		function applyRandomOrder() {
+			var order = window.flickityRandomOrder;
+			for (var i = 0, len = order.length; i < len; i++) {
+				var orderNumber = order[i];
+				if(slides[orderNumber] != undefined){
+					slides[orderNumber].parentNode.appendChild(slides[orderNumber]);
+				}
+			}
+		}
+
+		var slides = elem.querySelectorAll('.flickity-slide');
+		if (!window.flickityRandomOrder) defineRandomOrder(Array.prototype.slice.call(slides));
+		applyRandomOrder();
+	}
+
+	if (variant === 'navigation') {
+		(function styling() {
+			var target = $(elem).closest('.container')[0].previousElementSibling.querySelector('.flickity').parentNode;
+			var wrap = document.createElement('div'); wrap.classList.add('wrap'); wrap.style.width = '100%'; wrap.style.position = 'absolute'; wrap.style.bottom = '30px'; wrap.style.pointerEvents = 'none'; target.appendChild(wrap);
+			target.appendChild(wrap);
+			elem.parentNode.classList.add('container');
+			wrap.appendChild(elem.parentNode);
+			var spacer = document.createElement('div'); spacer.classList.add('spacer'); spacer.classList.add('flickity-spacer'); spacer.style.height = '80px'; target.appendChild(spacer);
+			(function gaHandling() {
+				var links = elem.querySelectorAll('a');
+				if (!links.length) return;
+				links.forEach(function(link) {
+					(function(link) {
+						link.addEventListener('click', function(e) {
+							var linkText = ($(link).closest('.flickity-slide')[0].querySelector('a').textContent);
+							var linkTarget = $(link).attr('href');
+							ga('send', 'event', 'Billboard', window.location.href, linkTarget);
+						})
+					})(link);
+				});
+			})();
+		})();
+	}
+
+	if (pager !== 'none') {
+		var customNav = document.createElement('div'); customNav.classList.add('customNav'); customNav.classList.add('customNav--' + pagerPosition);
+		customNav.innerHTML = '<div class="'+pager+'"><div class="previous"></div><div class="indicator"></div><div class="next"></div></div>'; elem.parentNode.appendChild(customNav);
+		customNav.indicator = customNav.querySelector('.indicator');
+		customNav.indicator.items = [];
+		customNav.prev = customNav.querySelector('.previous'); customNav.prev.addEventListener('click', function() {elem.flickity.previous(true, false)});
+		customNav.next = customNav.querySelector('.next'); customNav.next.addEventListener('click', function() {elem.flickity.next(true, false)});
+		if (elem.querySelector('.row--hover-teaser')) {
+			function scrollUpOnMobile() {
+				if (window.innerWidth < 767) {
+					$([document.documentElement, document.body]).animate({
+						scrollTop: $(elem).offset().top
+					}, 500);
+				}
+			}
+
+			customNav.next.addEventListener('click', scrollUpOnMobile)
+			customNav.prev.addEventListener('click', scrollUpOnMobile)
+		}
+		customNav.setActiveClass = function() {
+			customNav.indicator.items.forEach(function(item, index) {
+				if (index === elem.flickity.selectedIndex) {
+					item.classList.add('active');
+				} else {
+					item.classList.remove('active');
+				}
+			});
+		}
+		customNav.update = function(init) {
+			if (pager === 'special') {
+				if (init) {
+					elem.flickity.cells.forEach(function(cell, index) {
+						var item = document.createElement('div'); item.classList.add('item'); item.innerHTML = index + 1;
+						item.addEventListener('click', function() { elem.flickity.select(index, true, false); });
+						customNav.indicator.appendChild(item);
+						customNav.indicator.items.push(item);
+					});
+				}
+				customNav.setActiveClass();
+			} else {
+				customNav.indicator.innerHTML = (elem.flickity.selectedIndex + 1) + ' / ' + elem.flickity.slides.length;
+			}
+		}
+	}
+
+	if (variant === 'products') {
+		var links = elem.querySelectorAll('a.product-link');
+		if (links.length) {
+			links.forEach(function(link) {
+				if (link.innerHTML.indexOf('<img') === -1) {
+					link.classList.add('internal-link');
+					link.classList.add('button-gray-link-arrow');
+				}
+			});
+		}
+	}
+	
+	if (variant === 'teasers') {
+		elem.parentNode.parentNode.classList.add('container');
+	}
+
+	if (variant === 'seminarsAutogen') {
+		var oSlide = elem.querySelector('.flickity-slide');
+		var sTeasers = elem.querySelectorAll('.seminar-teaser');
+		
+		if (sTeasers.length) {
+			sTeasers.forEach(function(sTeaser) {
+				var slide = document.createElement('div'); slide.classList.add('flickity-slide'); slide.appendChild(sTeaser);
+				elem.appendChild(slide);
+			});
+
+			oSlide.parentNode.removeChild(oSlide);
+		} else {
+			elem.parentNode.innerHTML = '';
+			return;
+		}
+	}
+
+	var sync = otherSliderUid ? document.querySelector('.flickity--' + otherSliderUid) : false;
+
+	imagesLoaded(elem, function() {
+		elem.flickity = new Flickity(elem, {
+			prevNextButtons: arrows,
+			autoPlay: speed,
+			pauseAutoPlayOnHover: true,
+			wrapAround: true,
+			pageDots: variant === 'autowidth',
+			sync: sync,
+			adaptiveHeight: variant === 'navigation',
+			on: {
+				ready: function() {
+					if (variant === 'teasers') {
+						arrows = elem.querySelectorAll('.flickity-button');
+						arrows.forEach(function(button) {
+							var target = button.parentNode.parentNode.parentNode;
+							target.classList.add('flickity--arrows-normal');
+							target.appendChild(button);
+						});
+					}
+				}
+			}
+		});
+		
+		if (pager !== 'none') {
+			customNav.update(true);
+			elem.flickity.on('select', function() { customNav.update(false); });
+			elem.appendChild(customNav);
+		}
+
+		if (variant === 'navigation') {
+			// elem.flickity.cells.forEach(function(current) {
+			// 	var link = current.element.querySelector('a');
+			// 	if (!link) return;
+			// 	current.element.addEventListener('click', function(e) {
+			// 		if (customNav.contains(e.target) || customNav === e.target) return;
+			// 		e.preventDefault();
+			// 		window.open(link, "_blank");
+			// 	});
+			// });
+			elem.flickity.on('change', function(i) {
+				elem.flickity.cells.forEach(function(current) {
+					if (current === elem.flickity.cells[i]) {
+						current.element.querySelector('.frame-default').style.opacity = '1';
+					} else {
+						current.element.querySelector('.frame-default').style.opacity = '0';
+					}
+				});
+			});
+		}
+
+		if (variant === 'products') {
+			(function() {
+				var title = document.createElement('div'); title.classList.add('product-slider-title'); title.innerHTML = 'Produkt Hightlights'; elem.appendChild(title);
+				setTimeout(function() {
+					elem.flickity.resize();
+				}, 1000);
+			})();
+		}
+		if (variant === 'downloads') {
+			(function() {
+				var title = document.createElement('div'); title.classList.add('product-slider-title'); title.innerHTML = 'Downloads'; elem.appendChild(title);
+			})();
+		}
+		if (variant === 'seminars' || variant === 'seminarsAutogen') {
+			(function() {
+				var title = document.createElement('div'); title.classList.add('product-slider-title'); title.innerHTML = 'Seminare'; elem.appendChild(title);
+				$( window ).scroll(function() {
+					elem.flickity.resize();
+				});
+				setTimeout(function() {
+					elem.flickity.resize();
+				}, 1000);
+				let timer;
+                function debounce(callback, time) {
+                    clearTimeout(timer)
+                    timer = setTimeout(callback, time)
+                }
+                window.addEventListener('scroll', () => {
+                    debounce(() => {
+                        elem.flickity.resize();
+                    }, 100)
+                });
+			})();
+		}
+	});
+	
+	imagesLoaded(elem, function() {
+		setTimeout(function() {
+			elem.flickity.resize();
+		}, 0);
+		elem.style.opacity = '1';
+		var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+		if (!isIE11) return; 
+		var videos = elem.querySelectorAll('video');
+		if (!videos.length) return; 
+		videos.forEach(function(video){video.play();});
+	});
+
+    // dynamic margin bottom
+    (() => {
+        if (elem.className.indexOf('imagebuilder') === -1) return
+        function getHighest() {
+            const navBoxes = elem.parentNode.querySelectorAll('.flickity--nav-slider .flickity-slide')
+            if (!navBoxes.length) return
+            const highest = Array.from(navBoxes).reduce((acc, curr) => {
+                const h = curr.scrollHeight
+                return h > acc ? h : acc
+            }, 0)
+            return highest
+        }
+        function setMb() {
+            const high = getHighest()
+            if (!high) return
+            const w = window.innerWidth
+            const mob = w < 768
+            const whiteBorder = 100/1920*w
+            elem.style.marginBottom = `${high - (mob ? 0 : whiteBorder) - 20}px`
+        }
+        ['load', 'resize', 'orientationchange'].forEach(e => {
+            window.addEventListener(e, setMb)
+        })
+    })();
+})();
+

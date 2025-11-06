@@ -1,0 +1,36 @@
+# Translation System - Git Ignore Rules
+# Add these to your main .gitignore file
+
+# Environment variables (contains API keys)
+.env
+
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# Translation cache
+.cache/
+*.json
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Translated output directory (optional - you may want to commit this)
+# uz/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
